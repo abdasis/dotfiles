@@ -5,7 +5,7 @@
     "default_mode": "insert"
   },
   "icon_theme": "Soft Charmed Icons",
-  "theme": "Aura Dark",
+  "theme": "One Dark",
   "theme_overrides": {
     "Aura Dark": {
       "editor.document_highlight.read_background": "#00000000",
@@ -17,8 +17,8 @@
       "panel.focused_border": "#4E466E",
       "players": [
         {
-          "cursor": "#BD9DFF",
-        },
+          "cursor": "#BD9DFF"
+        }
       ],
       "scrollbar.track.background": "#00000000",
       "scrollbar.track.border": "#00000000",
@@ -26,29 +26,78 @@
       "scrollbar.thumb.hover_background": "#4E466E80",
       "syntax": {
         "comment": {
-          "font_style": "italic",
+          "font_style": "italic"
         },
         "comment.doc": {
-          "font_style": "italic",
-        },
-      },
+          "font_style": "italic"
+        }
+      }
     },
+    "One Dark": {
+      "background": "#1e2227",
+      "elevated_surface.background": "#1e2227",
+      "surface.background": "#1e2227",
+      "border": "#1e2227",
+      "border.variant": "#1e2227",
+      "border.focused": "#2c313a",
+      "border.selected": "#2c313a",
+      "border.transparent": "#1e222700",
+      "border.disabled": "#1e2227",
+      "title_bar.background": "#1e2227",
+      "status_bar.background": "#1e2227",
+      "toolbar.background": "#23272e",
+      "tab_bar.background": "#1e2227",
+      "tab.inactive_background": "#1e2227",
+      "tab.active_background": "#23272e",
+      "panel.background": "#1e2227",
+      "panel.focused_border": "#2c313a",
+      "editor.background": "#23272e",
+      "editor.gutter.background": "#23272e",
+      "editor.active_line.background": "#2c313c50",
+      "editor.document_highlight.read_background": "#00000000",
+      "editor.document_highlight.write_background": "#00000000",
+      "terminal.background": "#1e2227",
+      "scrollbar.track.background": "#00000000",
+      "scrollbar.track.border": "#00000000",
+      "scrollbar.thumb.background": "#3e445230",
+      "scrollbar.thumb.hover_background": "#3e445260",
+      "scrollbar.thumb.border": "#00000000",
+      "element.hover": "#23272e",
+      "element.selected": "#23272e",
+      "ghost_element.hover": "#23272e",
+      "ghost_element.selected": "#23272e",
+      "players": [
+        {
+          "cursor": "#61afef",
+          "background": "#61afef",
+          "selection": "#67769640"
+        }
+      ],
+      "syntax": {
+        "comment": {
+          "font_style": "italic"
+        },
+        "comment.doc": {
+          "font_style": "italic"
+        }
+      }
+    }
   },
   "title_bar": {
     "show_branch_status_icon": true,
     "show_onboarding_banner": false,
     "show_project_items": true,
     "show_branch_name": true,
-    "show_user_menu": true,
+    "show_user_menu": true
   },
   "tab_bar": {
-    "show": false,
+    "show": false
   },
   "toolbar": {
-    "quick_actions": false,
+    "quick_actions": false
   },
   "status_bar": {
-    "experimental.show": true,
+    "experimental.show": true
   },
   "project_panel": {
     "dock": "left",
@@ -59,38 +108,38 @@
     "git_status": true,
     "sticky_scroll": false,
     "scrollbar": {
-      "show": "auto",
+      "show": "auto"
     },
     "indent_guides": {
-      "show": "never",
-    },
+      "show": "never"
+    }
   },
   "outline_panel": {
     "default_width": 300,
     "indent_guides": {
-      "show": "never",
-    },
+      "show": "never"
+    }
   },
   "file_finder": {
-    "modal_max_width": "large",
+    "modal_max_width": "large"
   },
   "scrollbar": {
-    "show": "auto",
+    "show": "auto"
   },
   "gutter": {
     "min_line_number_digits": 0,
     "folds": false,
-    "runnables": false,
+    "runnables": false
   },
   "indent_guides": {
-    "enabled": false,
+    "enabled": false
   },
   "ui_font_family": "Dank Mono",
   "ui_font_size": 16,
   "buffer_font_family": "Dank Mono",
   "buffer_font_size": 13,
   "buffer_line_height": {
-    "custom": 2,
+    "custom": 2
   },
   "agent_buffer_font_size": 20,
   "vim_mode": false,
@@ -99,12 +148,12 @@
   "cursor_blink": true,
   "selection_highlight": false,
   "drag_and_drop_selection": {
-    "enabled": false,
+    "enabled": false
   },
   "seed_search_query_from_cursor": "never",
   "current_line_highlight": "none",
   "show_whitespaces": "none",
-  "tab_size": 2,
+  "tab_size": 3,
   "auto_indent": "none",
   "auto_indent_on_paste": false,
   "show_completions_on_input": false,
@@ -115,35 +164,35 @@
   "format_on_save": "off",
   "autosave": {
     "after_delay": {
-      "milliseconds": 1000,
-    },
+      "milliseconds": 1000
+    }
   },
   "auto_update": false,
   "extend_comment_on_newline": false,
   "horizontal_scroll_margin": 1,
-  "vertical_scroll_margin": 1,
+  "scroll_sensitivity": 0.6,
+  "vertical_scroll_margin": 3,
   "when_closing_with_no_tabs": "keep_window_open",
   "close_on_file_delete": true,
   "restore_on_file_reopen": false,
   "restore_on_startup": "empty_tab",
   "session": {
-    "restore_unsaved_buffers": false,
+    "restore_unsaved_buffers": false
   },
   "git": {
     "git_gutter": "hide",
     "inline_blame": {
-      "enabled": false,
-    },
+      "enabled": false
+    }
   },
   "centered_layout": {
     "right_padding": 0.15,
-    "left_padding": 0.15,
+    "left_padding": 0.15
   },
   "git_panel": {
-    "dock": "left",
+    "dock": "left"
   },
   "terminal": {
-    "dock": "right",
-  },
+    "dock": "right"
+  }
 }
-
