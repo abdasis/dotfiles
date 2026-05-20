@@ -135,13 +135,13 @@
     "enabled": false
   },
   "ui_font_family": "Dank Mono",
-  "ui_font_size": 16,
+  "ui_font_size": 15,
   "buffer_font_family": "Dank Mono",
-  "buffer_font_size": 13,
+  "buffer_font_size": 13.5,
   "buffer_line_height": {
     "custom": 2
   },
-  "agent_buffer_font_size": 20,
+  "agent_buffer_font_size": 15,
   "vim_mode": false,
   "multi_cursor_modifier": "cmd_or_ctrl",
   "cursor_shape": "bar",
@@ -190,9 +190,11 @@
     "left_padding": 0.15
   },
   "git_panel": {
+    "tree_view": true,
     "dock": "left"
   },
   "terminal": {
-    "dock": "right"
+    "dock": "right",
+    "font_size": 12.5
   }
 }

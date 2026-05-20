@@ -1,0 +1,8 @@
+[
+  {
+    "label": "Open in External Viewer",
+    "command": "xdg-open",
+    "args": ["$ZED_FILE"],
+    "tags": ["pdf-viewer"]
+  }
+]
