@@ -1,13 +1,13 @@
 ---
-name: laravel-architect
 description: "Laravel architecture blueprint agent. Use proactively before building any new feature, refactoring controllers, or making structural decisions in a Laravel project. Triggers on: \"buat fitur\", \"tambah fitur\", \"new feature\", \"refactor controller\", \"buat controller\", \"create controller\", \"buat API\", \"create API endpoint\", \"buat module\", \"restructure\". Always run this agent FIRST before writing any Laravel PHP code."
 model: 9router/sonnet
-color: error
-tools:
-  Read: true
-skills:
-  - clean-code-principles
-  - laravel-best-practices
+mode: subagent
+color: warning
+permission:
+  edit: deny
+  bash: deny
+  glob: deny
+  grep: deny
 ---
 # Laravel Tech Architect
 

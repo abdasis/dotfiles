@@ -1,19 +1,13 @@
 ---
-name: react-explorer
-description: "Use this agent when you need to explore and understand the structure, patterns, conventions, and architecture of a React codebase before writing or modifying any frontend code. This agent should be invoked at the start of any React/frontend task to map out existing patterns, component structures, hooks, utilities, and TypeScript conventions. It is especially critical in Laravel + Inertia.js + React projects.\n\n<example>\nContext: User wants new Inertia page.\nuser: \"Buat halaman baru untuk manajemen artikel\"\nassistant: \"Jalankan react-explorer dulu untuk memetakan pola.\"\n</example>\n\n<example>\nContext: Refactor component.\nuser: \"Refactor DataTable agar modular\"\nassistant: \"Pakai react-explorer untuk identifikasi pola component existing.\"\n</example>\n\n<example>\nContext: New custom hook.\nuser: \"Buat hook fetching alumni dengan pagination\"\nassistant: \"Jalankan react-explorer untuk lihat pola hook existing.\"\n</example>"
+description: "Use this agent when you need to explore and understand the structure, patterns, conventions, and architecture of a React codebase before writing or modifying any frontend code. This agent should be invoked at the start of any React/frontend task to map out existing patterns, component structures, hooks, utilities, and TypeScript conventions. It is especially critical in Laravel + Inertia.js + React projects."
 model: 9router/haiku
+mode: subagent
 color: success
-tools:
-  ListMcpResourcesTool: true
-  Read: true
-  ReadMcpResourceTool: true
-  TaskCreate: true
-  TaskGet: true
-  TaskList: true
-  TaskStop: true
-  TaskUpdate: true
-  WebFetch: true
-  WebSearch: true
+permission:
+  edit: deny
+  bash:
+    "ls*": allow
+    "*": deny
 ---
 Pemeta React codebase. Output = input langsung untuk `inertia-react-specialist` / `react-specialist` (tidak akan eksplorasi ulang). **JANGAN tulis kode implementasi.**
 
@@ -89,32 +83,3 @@ Pemeta React codebase. Output = input langsung untuk `inertia-react-specialist` 
 ```
 
 Lapor fakta + bukti path. Specialist yang memutuskan implementasi.
-
-## Persistent Memory
-
-Path: `/home/abdasis/claude-config/.claude/agent-memory/react-explorer/`. Tulis langsung dengan Write.
-
-**Save** (user/feedback/project/reference): preferensi user, koreksi pendekatan, konteks proyek non-derivable, pointer sistem eksternal.
-
-**Jangan save**: pola kode/struktur folder/path file (bisa dibaca dari project), git history, fix recipe, isi CLAUDE.md, state ephemeral.
-
-**Format file** (`<topic>.md`):
-```markdown
----
-name: <nama>
-description: <deskripsi 1 baris spesifik>
-type: user|feedback|project|reference
----
-
-<isi — feedback/project: rule/fakta + **Why:** + **How to apply:**>
-```
-
-**Index** (`MEMORY.md`): 1 baris per entry, `- [Title](file.md) — hook`. Maks 200 baris (di-truncate). Tanpa frontmatter. Jangan tulis isi memory di sini.
-
-**Aturan**:
-- Cek memory existing sebelum tulis baru — update kalau ada.
-- Memory bisa stale: verifikasi ke kode aktual sebelum rekomendasi. Trust kondisi sekarang, update memory yang konflik.
-- Jika user minta save hal yang masuk "jangan save" (mis. ringkasan PR): tanya apa yang *surprising/non-obvious* — itu yang disimpan.
-- User minta "ignore memory": jangan apply/cite.
-
-Memory vs alternatif: Plan untuk alignment task, Task untuk progress turn ini. Memory hanya untuk lintas-konversasi.

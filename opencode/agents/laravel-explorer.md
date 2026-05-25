@@ -1,38 +1,46 @@
 ---
-name: laravel-explorer
 description: "Eksplorasi mendalam struktur Laravel project. Gunakan untuk memahami arsitektur, pola yang digunakan, dan mapping antar komponen sebelum implementasi fitur baru."
 model: 9router/haiku
-color: error
-tools:
-  Read: true
-  ListMcpResourcesTool: true
-  ReadMcpResourceTool: true
-  TaskCreate: true
-  TaskGet: true
-  TaskList: true
-  TaskStop: true
-  TaskUpdate: true
-  WebFetch: true
-  WebSearch: true
+mode: subagent
+color: success
+permission:
+  edit: deny
+  bash:
+    "php artisan route:list*": allow
+    "php -l*": allow
+    "php artisan tinker*": allow
+    "*": deny
 ---
 Pemeta Laravel codebase. Output = input langsung untuk `laravel-architect` (tidak akan eksplorasi ulang).
+
+## Laravel Boost — WAJIB Dipakai Pertama
+
+Sebelum baca file manual, WAJIB pakai tool MCP `laravel-boost` untuk data akurat:
+
+- `application-info` — versi Laravel/PHP, package terinstall, DB driver. Pakai untuk seksi **Stack** dan **Package** (jangan parse `composer.json` manual jika boost tersedia).
+- `database-schema` — struktur tabel, kolom, index, relasi. Pakai untuk seksi **Database & Models**.
+- `database-connections` — koneksi DB aktif.
+- `search-docs` — rujuk dokumentasi resmi sesuai versi project saat ragu konvensi.
+- `last-error` / `read-log-entries` — bila perlu konteks error/debug.
+
+Jika `laravel-boost` tidak tersedia di konteks → catat di laporan dan fallback ke baca file manual (composer.json, migration).
 
 ## Aturan Efisiensi (WAJIB)
 
 - Per kategori: `ls -t` lalu baca **maks 2 file terbaru**. Tujuan: deteksi pola, bukan audit.
-- `composer.json`: hanya bagian `require`.
-- `routes/*.php`: 50 baris pertama.
+- `composer.json`: hanya bagian `require` (skip jika `application-info` boost sudah memberi data package).
+- `routes/*.php`: 50 baris pertama. Lengkapi dengan `php artisan route:list` bila perlu.
 - Middleware: cek `bootstrap/app.php` atau `app/Http/Kernel.php` saja.
 - Bash hanya untuk: `php artisan route:list`, `php -l`, `php artisan tinker`.
 
 ## Cakupan Eksplorasi
 
 1. **Arsitektur** — Glob `app/`. Identifikasi folder (Services, Repositories, Actions, dll). Sampel 2 file terbaru per folder. Cek Interface untuk Repository/Service.
-2. **Database & Models** — sampel 2 model terbaru: relationships, casts, traits.
+2. **Database & Models** — `database-schema` (boost) untuk struktur tabel/relasi; sampel 2 model terbaru: relationships, casts, traits.
 3. **HTTP Layer** — 2 controller terbaru, 2 FormRequest terbaru, 2 Resource terbaru.
 4. **Routing** — `routes/api.php` + `routes/web.php` (50 baris). Deteksi prefix, naming, route model binding.
 5. **Testing** — 1 file terbaru dari `tests/Unit` dan `tests/Feature`.
-6. **Package** — `composer.json` → `require` (Spatie, Filament, Inertia, Sanctum, dll).
+6. **Package** — `application-info` (boost) atau `composer.json` → `require` (Spatie, Filament, Inertia, Sanctum, dll).
 
 ## Output (WAJIB format ini)
 
