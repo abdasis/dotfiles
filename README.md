@@ -16,6 +16,7 @@ ln -sf $(pwd)/zed/settings.json ~/.config/zed/settings.json
 ln -sf $(pwd)/opencode/opencode.json ~/.config/opencode/opencode.json
 ln -sf $(pwd)/opencode/opencode.jsonc ~/.config/opencode/opencode.jsonc
 ln -sf $(pwd)/opencode/agents ~/.opencode/agents
+ln -sf $(pwd)/opencode/skills ~/.opencode/skills
 ```
 
 Set the provider API key via environment variable:
